@@ -1,0 +1,248 @@
+Bandit Writeup
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+level 0
+ssh -l bandit0 bandit.labs.overthewire.org -p 2220
+pass bandit0
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+level 0-1
+cat readme 
+boJ9jbbUNNfktd78OOpsqOltutMc3MY1
+ssh bandit1@localhost
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+level 1-2
+cat ./-
+CV1DtqXWVFXTvM2F0k09SHz0YwRINYA9
+ssh bandit2@localhost
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+level 2-3
+cat spaces\ in\ this\ filename 
+UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK
+ssh bandit3@localhost
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+level 3-4
+cd inhere/; ls -la; cat .hidden
+pIwrPrtPN36QITSp3EQaw936yaFoFgAB
+ssh bandit4@localhost
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+level 4-5
+cd inhere/
+file ./-*
+./-file00: data
+./-file01: data
+./-file02: data
+./-file03: data
+./-file04: data
+./-file05: data
+./-file06: data
+./-file07: ASCII text
+./-file08: data
+./-file09: data
+cat ./-file07
+koReBOKuIDDepwhWk7jZC0RTdopnAYKh
+ssh bandit5@localhost
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+level 5-6
+To filter out the human-readable file names, you can make use of the [:print:] (printable) character class name. You will find more about such classes in the manual for grep.
+
+find . -type f -size 1033c -name "[[:print:]]*" ! -executable
+
+cat ./inhere/maybehere07/.file2
+DXjZPULLxYr17uwoI01bNLQbtFemEgo7
+ssh bandit6@localhost
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+level 6-7
+find . -user bandit7 -group bandit6 -size 33c -print 2>/dev/null
+./var/lib/dpkg/info/bandit7.password
+
+cat ./var/lib/dpkg/info/bandit7.password
+HKBPTKQnIay4Fw76bEy8PVxKEDQRKTzs
+ssh bandit7@localhost
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+level 7-8
+cat data.txt | grep millionth
+millionth	cvX2JJa4CFALtqS87jk27qwqGhBM9plV
+ssh bandit8@localhost
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+level 8-9
+cat data.txt | sort | uniq -u
+UsvVyFSfZZWbi6wgC7dAFyFuR6jQQUhR
+ssh bandit9@localhost
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+level 9-10
+strings data.txt | grep "="
+2========== the
+========== password
+>t=	yP
+rV~dHm=
+========== isa
+=FQ?P\U
+=	F[
+pb=x
+J;m=
+=)$=
+========== truKLdjsbJ5g7yyJ2X2R0o3a5HQJFuLk
+iv8!=
+ssh bandit10@localhost
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+level 10-11
+base64 -d data.txt
+The password is IFukwKGsFW8MOq3IRFqrxE1hxTNEbUPR
+
+To encode text to base64, use the following syntax:
+
+$ echo -n 'scottlinux.com rocks' | base64
+c2NvdHRsaW51eC5jb20gcm9ja3MK
+To decode, use base64 -d. To decode base64, use a syntax like the following:
+
+$ echo -n c2NvdHRsaW51eC5jb20gcm9ja3MK | base64 -d
+scottlinux.com rocks
+ssh bandit11@localhost
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+level 11-12
+a +13 position means it traversed to n so N -> A traversal
+cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
+The password is 5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu
+ssh bandit12@localhost
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+level 12-13
+2 - mkdir /tmp/yourname 
+3 - cp data.txt /tmp/yourname
+4 - cd /tmp/yourname
+5 - xxd -r data.txt data.out
+6 - file data.out
+7 - mv data.out data.gz
+8 - gzip -d data.gz
+9 - file data
+10 - bzip2 -d data
+11 - file data.out
+12 - mv data.out data.gz
+13 - gzip -d data.gz
+14 - file data
+15 - tar -xf data
+16 - file data5.bin
+17 - tar -xf data5.bin
+18 - file data6.bin
+19 - bzip2 -d data6.bin
+20 - tar -xf data6.bin.out
+21 - file data8.bin
+22 - mv data8.bin data8.gz
+23 - gzip -d data8.gz
+24 - cat data8
+The password is 8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL
+ssh bandit13@localhost
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+level 13-14
+ls
+sshkey.private
+bandit14@bandit:~$ ssh -i sshkey.private bandit14@localhost
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+level 14-15
+cat /etc/bandit_pass/bandit14 current password
+cat /etc/bandit_pass/bandit14 | nc localhost 30000
+Correct!
+BfMYroe26WYalil77FoDi9qh59eK5xNr
+ssh bandit15@localhost
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+level 15-16
+echo BfMYroe26WYalil77FoDi9qh59eK5xNr | openssl s_client -quiet -connect localhost:30001
+depth=0 CN = localhost
+verify error:num=18:self signed certificate
+verify return:1
+depth=0 CN = localhost
+verify return:1
+Correct!
+cluFn7wTiGryunymYOu4RcffSxQluehd
+ssh bandit16@localhost
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+level 16-17
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+curl -H 'Client-ID: ts30izc95sansfdmps1jzg9km9679n' \
+-X GET 'https://api.twitch.tv/helix/users?login=magical_lizard' | python -m json.tool
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+curl -H 'Accept: application/vnd.twitchtv.v5+json' \
+-H 'Client-ID: ts30izc95sansfdmps1jzg9km9679n' \
+-X GET 'https://api.twitch.tv/kraken/users/426323398/follows/channels' | python -m json.tool
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+curl -H 'Client-ID: ts30izc95sansfdmps1jzg9km9679n' \
+> -X GET 'https://api.twitch.tv/helix/users?login=magical_lizard' | python -m json.tool
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   306  100   306    0     0    847      0 --:--:-- --:--:-- --:--:--   845
+{
+    "data": [
+        {
+            "broadcaster_type": "",
+            "description": "",
+            "display_name": "magical_lizard",
+            "id": "426323398",
+            "login": "magical_lizard",
+            "offline_image_url": "",
+            "profile_image_url": "https://static-cdn.jtvnw.net/jtv_user_pictures/b3c10d01-9f76-42fb-ac68-276559150f01-profile_image-300x300.png",
+            "type": "",
+            "view_count": 77
+        }
+    ]
+}
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+curl -H 'Client-ID: ts30izc95sansfdmps1jzg9km9679n' \
+-X GET 'https://api.twitch.tv/helix/users/follows?to_id=426323398' | python -m json.tool
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
