@@ -193,8 +193,6 @@ level 16-17
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-curl -H 'Client-ID: ts30izc95sansfdmps1jzg9km9679n' \
--X GET 'https://api.twitch.tv/helix/users?login=magical_lizard' | python -m json.tool
 
 
 
@@ -212,37 +210,10 @@ curl -H 'Client-ID: ts30izc95sansfdmps1jzg9km9679n' \
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-curl -H 'Accept: application/vnd.twitchtv.v5+json' \
--H 'Client-ID: ts30izc95sansfdmps1jzg9km9679n' \
--X GET 'https://api.twitch.tv/kraken/users/426323398/follows/channels' | python -m json.tool
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-curl -H 'Client-ID: ts30izc95sansfdmps1jzg9km9679n' \
-> -X GET 'https://api.twitch.tv/helix/users?login=magical_lizard' | python -m json.tool
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-100   306  100   306    0     0    847      0 --:--:-- --:--:-- --:--:--   845
-{
-    "data": [
-        {
-            "broadcaster_type": "",
-            "description": "",
-            "display_name": "magical_lizard",
-            "id": "426323398",
-            "login": "magical_lizard",
-            "offline_image_url": "",
-            "profile_image_url": "https://static-cdn.jtvnw.net/jtv_user_pictures/b3c10d01-9f76-42fb-ac68-276559150f01-profile_image-300x300.png",
-            "type": "",
-            "view_count": 77
-        }
-    ]
-}
-
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-curl -H 'Client-ID: ts30izc95sansfdmps1jzg9km9679n' \
--X GET 'https://api.twitch.tv/helix/users/follows?to_id=426323398' | python -m json.tool
-
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
