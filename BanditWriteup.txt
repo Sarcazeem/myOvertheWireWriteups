@@ -189,31 +189,263 @@ ssh bandit16@localhost
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 level 16-17
+nmap -p31000-32000
+openssl s_client -connect localhost:31790
+12  openssl s_client -connect localhost:31518
+cat /etc/bandit_pass/bandit16 | openssl s_client -connect localhost:31790 
+echo cluFn7wTiGryunymYOu4RcffSxQluehd | openssl s_client -quiet -connect localhost:31790
+echo cluFn7wTiGryunymYOu4RcffSxQluehd | openssl s_client -quiet -connect localhost:31790 | vim -
+chmod 600 key 
+ssh -i key bandit17@localhost
 
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+level 17-18
+diff passwords.old passwords.new 
+42c42
+< hlbSBPAWJmL6WFDb06gpTx1pPButblOA
+---
+> kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd
 
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+level 18-19
+$ ls
+readme
+$ cat readme
+IueksS7Ubh8G3DCwVzrTd8rAVOwq3M5x
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+level 19-20
+./bandit20-do  whoami
+bandit20
+bandit19@bandit:~$ ./bandit20-do cat /etc/bandit_pass/bandit20 
+GbKksEFF4yrVs6il55v6gwY5aVje5f0j
+
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+level 20-21
+bg
+[1]+ nc -lp 1234 < /etc/bandit_pass/bandit20 &
+bandit20@bandit:~$ ./suconnect 1234
+Read: GbKksEFF4yrVs6il55v6gwY5aVje5f0j
+Password matches, sending next password
+gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+level 21-22
+cat /etc/cron.d/cronjob_bandit22 
+ls -l | grep cronjob
+cat cronjob_bandit22.sh
+#!/bin/bash
+chmod 644 /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+cat /etc/bandit_pass/bandit22 > /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+cat /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+Yk7owGAcWjwMVRwrTesJEwB7WVOiILLI
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+level 22-23
+cat /usr/bin/cronjob_bandit23.sh
+#!/bin/bash
+
+myname=$(whoami)
+mytarget=$(echo I am user $myname | md5sum | cut -d ' ' -f 1)
+
+echo "Copying passwordfile /etc/bandit_pass/$myname to /tmp/$mytarget"
+
+cat /etc/bandit_pass/$myname > /tmp/$mytarget
+bandit22@bandit:/etc/cron.d$ echo I am user bandit23 | md5sum | cut -d ' ' -f 1
+8ca319486bfbbc3663ea0fbe81326349
+
+cat /tmp/8ca319486bfbbc3663ea0fbe81326349
+jc1udXuA1tiHqjIsL8yaapX5XIAI6i0n
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+level 23-24
+
+cd /tmp/sarca
+    2  ls
+    3  nc localhost 6161
+    4  cp sarcazeem.sh /var/spool/bandit24/
+    5  uptime
+    6  ls -l /var/spool/bandit24/
+    7  nc localhost 6161
+    8  cat sarcazeem.sh 
+    9  vi sarcazeem.sh 
+   10  cp sarcazeem.sh /var/spool/bandit24/
+   11  uptime
+   12  ls -l /var/spool/bandit24/
+   13  nc localhost 6161
+
+
+#!/bin/bash 
+cat /etc/bandit_pass/bandit24 | nc -lp 6161
+sleep 60
+
+
+nc localhost 6161
+UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+level 24-25
+
+
+nc localhost 30002
+I am the pincode checker for user bandit25. Please enter the password for user bandit24 and the secret pincode on a single line, separated by a space.
+
+mkdir /tmp/sarca
+    5  cd /tmp/sarca
+    6  vim pins
+    7  for i in {0000..9999}; do echo UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ $i >>  pins ; done
+
+split pins 
+   14  ls
+   15  cat xaa | nc localhost 30002 | grep -v Wrong
+   16  cat xab | nc localhost 30002 | grep -v Wrong
+   17  wc -ll x*
+   18  cat xai | nc localhost 30002 | grep -v Wrong
+
+  wc -l pins
+  
+  
+
+cat xai | nc localhost 30002 | grep -v Wrong
+I am the pincode checker for user bandit25. Please enter the password for user bandit24 and the secret pincode on a single line, separated by a space.
+Correct!
+The password of user bandit25 is uNG9O58gUE7snukf3bvZ0rxhtnjzSGzG
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+level 25-26
+
+ssh with key make shell smaller
+hit "v" 
+:e /etc/bandit_pass/bandit26    e for edit
+:set mouse-=a
+5czgV9L3Xx8JPOyRbXh6lQbmIOWvPT6Z
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+level 26-27
+
+:set shell=/bin/bash
+bandit26@bandit:~$ # :shell
+
+./bandit27-do cat /etc/bandit_pass/bandit27
+3ba3118a22e93127a4ed485be72ef5ea
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+level 27-28
+
+mkdir /tmp/hasan2
+    5  cd /tmp/hasan2
+    6  ls
+    7  git clone ssh://bandit27-git@localhost/home/bandit27-git/repo
+    8  ls
+    9  cd repo/
+
+cat README 
+The password to the next level is: 0ef186ac70e04ea33b4c1853d2526fa2
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+level 28-29
+
+mkdir /tmp/sarcazeem
+    4  mkdir /tmp/sarca
+    5  mkdir /tmp/sar
+    6  mkdir /tmp/sa
+    7  mkdir /tmp/saas
+    8  mkdir /tmp/anan
+    9  mkdir /tmp/ananexists
+   10  cd /tmp/ananexists
+   11  ls
+   12  git clone ssh://bandit28-git@localhost/home/bandit28-git/repo
+   13  ls
+   14  cd repo/
+   15  ls
+   16  cat README.md 
+
+git log
+   22  git diff HEAD~1
+   23  git diff HEAD~2
+
+username: bandit29
+-- password: bbc96594b4e001778eee9975372716b2
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+level 29-30
+
+git clone ssh://bandit29-git@localhost/home/bandit29-git/repo
+   13  ls
+   14  cd repo/
+   15  cat README.md 
+   16  ls
+   17  git log
+   18  git diff HEAD~1
+   19  git diff HEAD~2
+   20  git diff HEAD~0
+   21  git diff HEAD~1
+   22  git branch -a
+   23  git checkout dev
+   24  git log
+   25  git diff HEAD~1
+
+
+5b90576bedb2cc04c86a9e924ce42faf
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+level 30-31
+
+git log
+   11  git status
+   12  git branch -a
+   13  git tags
+   14  git tag
+   15  git tag -v
+   16  git tag 
+   17  git show secret
+   18  cat .git/packed-refs 
+   19  git diff f17132340e8ee6c159e0a4a6bc6f80e1da3b1aea
+   20  git show f17132340e8ee6c159e0a4a6bc6f80e1da3b1aea
+git show secret
+47e603bb428404d265f59c42920d81e5
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+level 31-32
+
+echo "May I come in?" >> key.txt
+add txt and push to git
+56a9bf19c63d650ce78e6ec0354ee45e
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
